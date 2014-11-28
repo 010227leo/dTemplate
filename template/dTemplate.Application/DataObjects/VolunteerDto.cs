@@ -1,5 +1,6 @@
 ﻿namespace dTemplate.Application.DataObjects
 {
+	using Hangerd.Dto;
 	using System;
 
 	public class AccountDto : DtoBase

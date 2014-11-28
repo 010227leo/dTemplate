@@ -11,7 +11,7 @@ namespace dTemplate
 
 		private static readonly string _templatePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "template");
 		private static readonly string[] _needRewriteFileExtensions = new string[] { ".sln", ".csproj", ".config", ".cs", ".cshtml", ".asax" };
-		private static readonly string[] _ignoreFiles = new string[] { ".dll", ".pdb" };
+		private static readonly string[] _ignoreFileExtensions = new string[] { ".dll", ".pdb" };
 
 		public static void Create(string projectName, string outputPath)
 		{
@@ -58,7 +58,7 @@ namespace dTemplate
 		{
 			var fileExtension = Path.GetExtension(templateFileFullName);
 
-			if (_ignoreFiles.Contains(fileExtension))
+			if (_ignoreFileExtensions.Contains(fileExtension))
 				return;
 
 			var templateFilename = Path.GetFileName(templateFileFullName);
