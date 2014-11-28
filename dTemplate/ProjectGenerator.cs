@@ -47,7 +47,7 @@ namespace dTemplate
 
 			foreach (var templateFileFullName in templateFiles)
 			{
-				CreateFile(templateFileFullName, currentOutputPath);
+				CreateFileAsync(templateFileFullName, currentOutputPath);
 			}
 
 			var templateDirs = Directory.GetDirectories(currentTemplatePath);
@@ -64,7 +64,7 @@ namespace dTemplate
 			}
 		}
 
-		private void CreateFile(string templateFileFullName, string currentOutputPath)
+		private async void CreateFileAsync(string templateFileFullName, string currentOutputPath)
 		{
 			var fileExtension = Path.GetExtension(templateFileFullName).ToLower();
 
@@ -79,14 +79,14 @@ namespace dTemplate
 			{
 				using (var streamReader = new StreamReader(templateFileFullName, Encoding.UTF8))
 				{
-					var content = streamReader.ReadToEnd();
-					var replacedContent = ReplaceProjectName(content);
+					var content = streamReader.ReadToEndAsync();
+					var replacedContent = ReplaceProjectName(await content);
 
 					using (var fileStream = new FileStream(outputFileFullName, FileMode.CreateNew))
 					{
 						using (var streamWriter = new StreamWriter(fileStream, Encoding.UTF8))
 						{
-							streamWriter.Write(replacedContent);
+							await streamWriter.WriteAsync(replacedContent);
 						}
 					}
 				}
