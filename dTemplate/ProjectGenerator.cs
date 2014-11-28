@@ -1,7 +1,6 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
 
 namespace dTemplate
@@ -12,6 +11,7 @@ namespace dTemplate
 
 		private static readonly string _templatePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "template");
 		private static readonly string[] _needRewriteFileExtensions = new string[] { ".sln", ".csproj", ".config", ".cs", ".cshtml", ".asax" };
+		private static readonly string[] _ignoreFiles = new string[] { ".dll", ".pdb" };
 
 		public static void Create(string projectName, string outputPath)
 		{
@@ -57,6 +57,10 @@ namespace dTemplate
 		private static void CreateFile(string projectName, string templateFileFullName, string currentOutputPath)
 		{
 			var fileExtension = Path.GetExtension(templateFileFullName);
+
+			if (_ignoreFiles.Contains(fileExtension))
+				return;
+
 			var templateFilename = Path.GetFileName(templateFileFullName);
 			var outputFilename = Regex.Replace(templateFilename, TEMPLATE_PLACEHOLDER, projectName);
 			var outputFileFullName = Path.Combine(currentOutputPath, outputFilename);
@@ -81,8 +85,6 @@ namespace dTemplate
 			{
 				File.Copy(templateFileFullName, outputFileFullName);
 			}
-
-			//Console.WriteLine(Path.Combine(currentOutputPath, outputFilename));
 		}
 	}
 }
