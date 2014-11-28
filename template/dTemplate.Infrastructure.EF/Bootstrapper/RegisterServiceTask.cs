@@ -5,7 +5,7 @@
 	using Hangerd.Bootstrapper;
 	using Hangerd.Extensions;
 	using Hangerd.Repository;
-	using HPVP.Infrastructure.EF;
+	using dTemplate.Infrastructure.EF;
 	using Microsoft.Practices.Unity;
 
 	public class RegisterServiceTask : RegisterServiceBootstrapperTask

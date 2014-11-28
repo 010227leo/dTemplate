@@ -1,4 +1,4 @@
-﻿namespace HPVP.Infrastructure.EF
+﻿namespace dTemplate.Infrastructure.EF
 {
 	using dTemplate.Infrastructure.EF.ModelConfigurations;
 	using Hangerd.EntityFramework;
