@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 
 namespace dTemplate
@@ -19,14 +20,21 @@ namespace dTemplate
 
 			try
 			{
-				var outputPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "output");
+				var stopwatch = Stopwatch.StartNew();
 
-				ProjectGenerator.Create(projectName, outputPath);
+				var templatePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "template");
+				var outputPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "output");
+				var projectGenerator = new ProjectGenerator(projectName, templatePath, "dTemplate");
+
+				projectGenerator.Create(outputPath);
+
+				stopwatch.Stop();
+
+				Console.WriteLine("{0} created! cost: {1}ms.", projectName, stopwatch.ElapsedMilliseconds);
 			}
 			catch (Exception ex)
 			{
-				Console.WriteLine("ProjectGenerator.Create error: {0}", ex.Message);
-				Console.WriteLine(ex.StackTrace);
+				Console.WriteLine("Create project error: {0}.", ex.Message);
 			}
 
 			Console.ReadKey(true);
