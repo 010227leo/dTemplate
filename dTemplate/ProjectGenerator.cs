@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Text.RegularExpressions;
 
 namespace dTemplate
@@ -67,14 +68,14 @@ namespace dTemplate
 
 			if (_needRewriteFileExtensions.Contains(fileExtension))
 			{
-				using (var streamReader = new StreamReader(templateFileFullName))
+				using (var streamReader = new StreamReader(templateFileFullName, Encoding.UTF8))
 				{
 					var content = streamReader.ReadToEnd();
 					var replacedContent = Regex.Replace(content, TEMPLATE_PLACEHOLDER, projectName);
 
 					using (var fileStream = new FileStream(outputFileFullName, FileMode.CreateNew))
 					{
-						using (var streamWriter = new StreamWriter(fileStream))
+						using (var streamWriter = new StreamWriter(fileStream, Encoding.UTF8))
 						{
 							streamWriter.Write(replacedContent);
 						}
