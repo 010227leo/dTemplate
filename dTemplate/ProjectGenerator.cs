@@ -8,12 +8,12 @@ namespace dTemplate
 {
 	public class ProjectGenerator
 	{
-		private string _projectName;
-		private string _templatePath;
-		private string _templatePlaceholder;
+		private readonly string _projectName;
+		private readonly string _templatePath;
+		private readonly string _templatePlaceholder;
 
-		private static readonly HashSet<string> _needRewriteFileExtensions = new HashSet<string>() { ".cs", ".sln", ".csproj", ".cshtml", ".master", ".aspx", ".asax", ".config", ".xml" };
-		private static readonly HashSet<string> _ignoreFileExtensions = new HashSet<string>() { ".dll", ".pdb" };
+		private static readonly HashSet<string> NeedRewriteFileExtensions = new HashSet<string>() { ".cs", ".sln", ".csproj", ".cshtml", ".master", ".aspx", ".asax", ".config", ".xml" };
+		private static readonly HashSet<string> IgnoreFileExtensions = new HashSet<string>() { ".dll", ".pdb" };
 
 		public ProjectGenerator(string projectName, string templatePath, string templatePlaceholder)
 		{
@@ -66,16 +66,19 @@ namespace dTemplate
 
 		private async void CreateFileAsync(string templateFileFullName, string currentOutputPath)
 		{
-			var fileExtension = Path.GetExtension(templateFileFullName).ToLower();
+			var fileExtension = Path.GetExtension(templateFileFullName);
 
-			if (_ignoreFileExtensions.Contains(fileExtension))
+			if (string.IsNullOrWhiteSpace(fileExtension))
+				return;
+
+			if (IgnoreFileExtensions.Contains(fileExtension.ToLower()))
 				return;
 
 			var templateFilename = Path.GetFileName(templateFileFullName);
 			var outputFilename = ReplaceProjectName(templateFilename);
 			var outputFileFullName = Path.Combine(currentOutputPath, outputFilename);
 
-			if (_needRewriteFileExtensions.Contains(fileExtension))
+			if (NeedRewriteFileExtensions.Contains(fileExtension))
 			{
 				using (var streamReader = new StreamReader(templateFileFullName, Encoding.UTF8))
 				{
