@@ -13,7 +13,7 @@
 		public override void Execute()
 		{
 			//application services
-			container.RegisterTypeAsPerResolve<IAccountService, AccountService>();
+			_container.RegisterTypeAsPerResolve<IAccountService, AccountService>();
 		}
 	}
 }

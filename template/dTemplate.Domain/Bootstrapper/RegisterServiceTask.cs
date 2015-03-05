@@ -13,7 +13,7 @@
 		public override void Execute()
 		{
 			//domain services
-			container.RegisterTypeAsPerResolve<IAccountDomainService, AccountDomainService>();
+			_container.RegisterTypeAsPerResolve<IAccountDomainService, AccountDomainService>();
 
 			//domain events
 		}

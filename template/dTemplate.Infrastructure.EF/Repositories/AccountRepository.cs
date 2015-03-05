@@ -7,7 +7,7 @@
 	using Hangerd.Repository;
 	using System.Linq;
 
-	public class AccountRepository : EFRepository<Account>, IAccountRepository
+	public class AccountRepository : EfRepository<Account>, IAccountRepository
 	{
 		public AccountRepository(IRepositoryContext context)
 			: base(context)

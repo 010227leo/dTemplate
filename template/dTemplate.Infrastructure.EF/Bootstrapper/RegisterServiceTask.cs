@@ -15,10 +15,10 @@
 		public override void Execute()
 		{
 			//unit of work
-			container.RegisterTypeAsPerRequest<IRepositoryContext, dTemplateUnitOfWork>();
+			_container.RegisterTypeAsPerRequest<IRepositoryContext, dTemplateUnitOfWork>();
 
 			//repositories
-			container.RegisterTypeAsPerRequest<IAccountRepository, AccountRepository>();
+			_container.RegisterTypeAsPerRequest<IAccountRepository, AccountRepository>();
 		}
 	}
 }

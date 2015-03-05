@@ -4,7 +4,7 @@
 	using Hangerd.EntityFramework;
 	using System.Data.Entity;
 
-	public class dTemplateUnitOfWork : EFRepositoryContext
+	public class dTemplateUnitOfWork : EfRepositoryContext
 	{
 		public dTemplateUnitOfWork() { }
 
