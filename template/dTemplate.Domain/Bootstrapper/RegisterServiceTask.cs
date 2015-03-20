@@ -1,14 +1,16 @@
-﻿namespace dTemplate.Domain.Bootstrapper
-{
-	using dTemplate.Domain.Services;
-	using dTemplate.Domain.Services.Implementation;
-	using Hangerd.Bootstrapper;
-	using Hangerd.Extensions;
-	using Microsoft.Practices.Unity;
+﻿using dTemplate.Domain.Services;
+using dTemplate.Domain.Services.Implementation;
+using Hangerd.Bootstrapper;
+using Hangerd.Extensions;
+using Microsoft.Practices.Unity;
 
+namespace dTemplate.Domain.Bootstrapper
+{
 	public class RegisterServiceTask : RegisterServiceBootstrapperTask
 	{
-		public RegisterServiceTask(IUnityContainer container) : base(container) { }
+		public RegisterServiceTask(IUnityContainer container) : base(container)
+		{
+		}
 
 		public override void Execute()
 		{

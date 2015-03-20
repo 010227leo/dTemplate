@@ -1,8 +1,8 @@
-﻿namespace dTemplate.Application.DataObjects
-{
-	using Hangerd.Dto;
-	using System;
+﻿using Hangerd.Dto;
+using System;
 
+namespace dTemplate.Application.DataObjects
+{
 	public class AccountDto : DtoBase
 	{
 		/// <summary>

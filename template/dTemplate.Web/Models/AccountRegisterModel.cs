@@ -1,7 +1,7 @@
-﻿namespace dTemplate.Web.Models
-{
-	using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
+namespace dTemplate.Web.Models
+{
 	public class AccountRegisterModel
 	{
 		[Required(ErrorMessage = "登录账号不可为空")]

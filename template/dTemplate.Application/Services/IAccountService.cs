@@ -1,8 +1,8 @@
-﻿namespace dTemplate.Application.Services
-{
-	using dTemplate.Application.DataObjects;
-	using System.Collections.Generic;
+﻿using dTemplate.Application.DataObjects;
+using System.Collections.Generic;
 
+namespace dTemplate.Application.Services
+{
 	public interface IAccountService
 	{
 		/// <summary>

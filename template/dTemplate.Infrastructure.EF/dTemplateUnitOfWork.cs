@@ -1,9 +1,9 @@
-﻿namespace dTemplate.Infrastructure.EF
-{
-	using dTemplate.Infrastructure.EF.ModelConfigurations;
-	using Hangerd.EntityFramework;
-	using System.Data.Entity;
+﻿using dTemplate.Infrastructure.EF.ModelConfigurations;
+using Hangerd.EntityFramework;
+using System.Data.Entity;
 
+namespace dTemplate.Infrastructure.EF
+{
 	public class dTemplateUnitOfWork : EfRepositoryContext
 	{
 		public dTemplateUnitOfWork() { }

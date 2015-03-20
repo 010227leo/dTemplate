@@ -1,8 +1,8 @@
-﻿namespace dTemplate.Infrastructure.EF.ModelConfigurations
-{
-	using dTemplate.Domain.Models;
-	using Hangerd.EntityFramework;
+﻿using dTemplate.Domain.Models;
+using Hangerd.EntityFramework;
 
+namespace dTemplate.Infrastructure.EF.ModelConfigurations
+{
 	public class AccountConfig : EntityTypeConfigBase<Account>
 	{
 		public AccountConfig()

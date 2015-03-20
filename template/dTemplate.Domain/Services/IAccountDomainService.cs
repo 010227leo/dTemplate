@@ -1,7 +1,7 @@
-﻿namespace dTemplate.Domain.Services
-{
-	using dTemplate.Domain.Models;
+﻿using dTemplate.Domain.Models;
 
+namespace dTemplate.Domain.Services
+{
 	public interface IAccountDomainService
 	{
 		/// <summary>

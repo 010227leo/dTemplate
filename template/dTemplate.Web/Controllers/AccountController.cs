@@ -1,15 +1,15 @@
-﻿namespace dTemplate.Web.Areas.Front.Controllers
-{
-	using dTemplate.Application.DataObjects;
-	using dTemplate.Application.Services;
-	using dTemplate.Web.Models;
-	using Hangerd.Mvc;
-	using Hangerd.Mvc.Authentication;
-	using Hangerd.Mvc.ViewModels;
-	using System;
-	using System.Linq;
-	using System.Web.Mvc;
+﻿using System;
+using System.Linq;
+using System.Web.Mvc;
+using dTemplate.Application.DataObjects;
+using dTemplate.Application.Services;
+using dTemplate.Web.Models;
+using Hangerd.Mvc;
+using Hangerd.Mvc.Authentication;
+using Hangerd.Mvc.ViewModels;
 
+namespace dTemplate.Web.Controllers
+{
 	public class AccountController : HangerdController
     {
 		private readonly IAccountService _accountService;
@@ -24,9 +24,7 @@
 		public ActionResult Login()
 		{
 			if (LoginAccountModel.Current != null)
-			{
-				return RedirectToAction("Index");
-			}
+				return RedirectToAction("Index", "Home");
 
 			return View();
 		}
@@ -38,9 +36,7 @@
 			var success = result.Value != null;
 
 			if (success)
-			{
 				LoginHelper.Login(result.Value.Id, string.Empty, DateTime.Now.AddHours(2));
-			}
 
 			return JsonContent(new { Success = success, Message = result.Message });
 		}
@@ -66,8 +62,7 @@
 		{
 			if (!ModelState.IsValid)
 			{
-				var errorMessage = ModelState.Values.Where(v => v.Errors.Count > 0)
-					.First().Errors.First().ErrorMessage;
+				var errorMessage = ModelState.Values.First(v => v.Errors.Count > 0).Errors.First().ErrorMessage;
 
 				return JsonContent(new { Success = false, Message = errorMessage });
 			}

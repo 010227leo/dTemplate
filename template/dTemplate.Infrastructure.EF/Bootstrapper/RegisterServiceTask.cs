@@ -1,16 +1,17 @@
-﻿namespace dTemplate.Infrastructure.EF.Bootstrapper
-{
-	using dTemplate.Domain.Repositories;
-	using dTemplate.Infrastructure.EF.Repositories;
-	using Hangerd.Bootstrapper;
-	using Hangerd.Extensions;
-	using Hangerd.Repository;
-	using dTemplate.Infrastructure.EF;
-	using Microsoft.Practices.Unity;
+﻿using dTemplate.Domain.Repositories;
+using dTemplate.Infrastructure.EF.Repositories;
+using Hangerd.Bootstrapper;
+using Hangerd.Extensions;
+using Hangerd.Repository;
+using Microsoft.Practices.Unity;
 
+namespace dTemplate.Infrastructure.EF.Bootstrapper
+{
 	public class RegisterServiceTask : RegisterServiceBootstrapperTask
 	{
-		public RegisterServiceTask(IUnityContainer container) : base(container) { }
+		public RegisterServiceTask(IUnityContainer container) : base(container)
+		{
+		}
 
 		public override void Execute()
 		{

@@ -1,34 +1,28 @@
-﻿namespace dTemplate.Web
-{
-	using dTemplate.Web.Models;
-	using Hangerd.Mvc.Attributes;
-	using System.Web;
-	using System.Web.Mvc;
+﻿using dTemplate.Web.Models;
+using Hangerd.Mvc.Attributes;
+using System.Web;
+using System.Web.Mvc;
 
+namespace dTemplate.Web
+{
 	public class AccountLoginAuthAttribute : LoginAuthAttribute
 	{
 		public AccountLoginAuthAttribute()
-			: base("Login", "Account")
+			: base("Login", "Account", string.Empty)
 		{
-			this.DefaultAjaxResult = "{\"Success\":false,\"Message\":\"操作失败，请重新登录\"}";
+			DefaultAjaxResult = "{\"Success\":false,\"Message\":\"操作失败，请重新登录\"}";
 		}
 
 		protected override bool LoginAuthorizeCore(HttpContextBase httpContext)
 		{
-			if (base.LoginAuthorizeCore(httpContext))
-			{
-				if (LoginAccountModel.Current != null)
-				{
-					return true;
-				}
-			}
+			if (!base.LoginAuthorizeCore(httpContext))
+				return false;
 
-			return false;
+			return LoginAccountModel.Current != null;
 		}
 
 		protected override void OnRolePrivilegeCheck(AuthorizationContext filterContext)
 		{
-			return;
 		}
 	}
 }

@@ -2,18 +2,14 @@
 {
 	public class MessagedResult<T>
 	{
-		public T Value { get; set; }
+		public T Value { get; private set; }
 
-		public string Message { get; set; }
-
-		public MessagedResult(T value)
-			: this(value, string.Empty)
-		{ }
+		public string Message { get; private set; }
 
 		public MessagedResult(T value, string message)
 		{
-			this.Value = value;
-			this.Message = message;
+			Value = value;
+			Message = message;
 		}
 	}
 }

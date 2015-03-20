@@ -1,10 +1,10 @@
-﻿namespace dTemplate.Domain.Models
-{
-	using Hangerd;
-	using Hangerd.Entity;
-	using Hangerd.Utility;
-	using System;
+﻿using Hangerd;
+using Hangerd.Entity;
+using Hangerd.Utility;
+using System;
 
+namespace dTemplate.Domain.Models
+{
 	public class Account : EntityBase, IDeletable, IValidatable
 	{
 		#region Public Properties
@@ -43,19 +43,15 @@
 		public Account(string loginName, string unencryptedPassword, string name)
 		{
 			if (string.IsNullOrWhiteSpace(loginName))
-			{
 				throw new HangerdException("登录账号不可为空");
-			}
 
 			if (!ValidationHelper.IsEmailAddress(loginName))
-			{
 				throw new HangerdException("登录账号须为邮箱地址");
-			}
 
-			this.LoginName = loginName;
-			this.EncryptedPassword = this.GetEncryptedPassword(unencryptedPassword);
-			this.Name = name;
-			this.CreateTime = DateTime.Now;
+			LoginName = loginName;
+			EncryptedPassword = GetEncryptedPassword(unencryptedPassword);
+			Name = name;
+			CreateTime = DateTime.Now;
 		}
 
 		#endregion
@@ -67,10 +63,8 @@
 		/// </summary>
 		public void Validate()
 		{
-			if (string.IsNullOrWhiteSpace(this.Name))
-			{
+			if (string.IsNullOrWhiteSpace(Name))
 				throw new HangerdException("姓名不可为空");
-			}
 		}
 
 		/// <summary>
@@ -78,9 +72,9 @@
 		/// </summary>
 		public bool ValidatePassword(string unencryptedPassword)
 		{
-			var encryptedPassword = this.GetEncryptedPassword(unencryptedPassword);
+			var encryptedPassword = GetEncryptedPassword(unencryptedPassword);
 
-			return encryptedPassword.Equals(this.EncryptedPassword);
+			return encryptedPassword.Equals(EncryptedPassword);
 		}
 
 		/// <summary>
@@ -88,7 +82,7 @@
 		/// </summary>
 		public void ChangePassword(string unencryptedPassword)
 		{
-			this.EncryptedPassword = this.GetEncryptedPassword(unencryptedPassword);
+			EncryptedPassword = GetEncryptedPassword(unencryptedPassword);
 		}
 
 		#endregion
@@ -98,12 +92,10 @@
 		/// <summary>
 		/// 密码加密
 		/// </summary>
-		private string GetEncryptedPassword(string unencryptedPassword)
+		private static string GetEncryptedPassword(string unencryptedPassword)
 		{
 			if (string.IsNullOrWhiteSpace(unencryptedPassword))
-			{
 				throw new HangerdException("密码不可为空");
-			}
 
 			return CryptoHelper.GetMd5(unencryptedPassword);
 		}

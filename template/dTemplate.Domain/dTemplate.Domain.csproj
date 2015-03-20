@@ -64,6 +64,8 @@
     <Compile Include="Services\IAccountDomainService.cs" />
     <Compile Include="Services\Implementation\AccountDomainService.cs" />
     <Compile Include="Specifications\AccountSpecifications.cs" />
+    <Compile Include="Specifications\DeletableSpecifications.cs" />
+    <Compile Include="Specifications\SpecificationsBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Events\" />
