@@ -45,7 +45,7 @@ namespace dTemplate.Application.Services.Implementation
 			return Mapper.Map<Account, AccountDto>(_accountRepository.Get(id, false));
 		}
 
-		public MessagedResult<AccountDto> GetAccountForLogin(string loginName, string password)
+		public HangerdResult<AccountDto> GetAccountForLogin(string loginName, string password)
 		{
 			return TryOperate(() =>
 			{
@@ -74,13 +74,13 @@ namespace dTemplate.Application.Services.Implementation
 			return Mapper.Map<IEnumerable<Account>, IEnumerable<AccountDto>>(accounts);
 		}
 
-		public MessagedResult<bool> RegisterAccount(AccountDto accountDto)
+		public HangerdResult<bool> RegisterAccount(AccountDto accountDto)
 		{
 			return TryOperate(() =>
 			{
 				var newAccount = _accountDomainService.RegisterNewAccount(accountDto.LoginName, accountDto.Password, accountDto.Name);
 
-				_accountRepository.Add(newAccount, false);
+				_accountRepository.Add(newAccount);
 
 				UnitOfWork.Commit();
 
@@ -88,7 +88,7 @@ namespace dTemplate.Application.Services.Implementation
 			}, successMessage: "注册成功", failureMessage: "注册失败");
 		}
 
-		public MessagedResult<bool> UpdateAccount(string accountId, AccountDto accountDto)
+		public HangerdResult<bool> UpdateAccount(string accountId, AccountDto accountDto)
 		{
 			return TryOperate(() =>
 			{
@@ -99,7 +99,7 @@ namespace dTemplate.Application.Services.Implementation
 
 				account.Name = accountDto.Name;
 
-				_accountRepository.Update(account, false);
+				_accountRepository.Update(account);
 
 				UnitOfWork.Commit();
 
@@ -107,7 +107,7 @@ namespace dTemplate.Application.Services.Implementation
 			});
 		}
 
-		public MessagedResult<bool> ChangeAccountPassword(string accountId, string oldPassword, string newPassword)
+		public HangerdResult<bool> ChangeAccountPassword(string accountId, string oldPassword, string newPassword)
 		{
 			return TryOperate(() =>
 			{
@@ -121,7 +121,7 @@ namespace dTemplate.Application.Services.Implementation
 
 				account.ChangePassword(newPassword);
 
-				_accountRepository.Update(account, false);
+				_accountRepository.Update(account);
 
 				UnitOfWork.Commit();
 
@@ -129,7 +129,7 @@ namespace dTemplate.Application.Services.Implementation
 			});
 		}
 
-		public MessagedResult<bool> RemoveAccount(string accountId)
+		public HangerdResult<bool> RemoveAccount(string accountId)
 		{
 			return TryOperate(() =>
 			{

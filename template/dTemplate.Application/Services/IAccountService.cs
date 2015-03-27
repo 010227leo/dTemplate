@@ -1,4 +1,5 @@
 ﻿using dTemplate.Application.DataObjects;
+using Hangerd;
 using System.Collections.Generic;
 
 namespace dTemplate.Application.Services
@@ -13,7 +14,7 @@ namespace dTemplate.Application.Services
 		/// <summary>
 		/// 根据登录账号、密码获取Account
 		/// </summary>
-		MessagedResult<AccountDto> GetAccountForLogin(string loginName, string password);
+		HangerdResult<AccountDto> GetAccountForLogin(string loginName, string password);
 
 		/// <summary>
 		/// 获取Account列表
@@ -23,21 +24,21 @@ namespace dTemplate.Application.Services
 		/// <summary>
 		/// 注册Account
 		/// </summary>
-		MessagedResult<bool> RegisterAccount(AccountDto accountDto);
+		HangerdResult<bool> RegisterAccount(AccountDto accountDto);
 
 		/// <summary>
 		/// 更新Account
 		/// </summary>
-		MessagedResult<bool> UpdateAccount(string accountId, AccountDto accountDto);
+		HangerdResult<bool> UpdateAccount(string accountId, AccountDto accountDto);
 
 		/// <summary>
 		/// 修改Account密码
 		/// </summary>
-		MessagedResult<bool> ChangeAccountPassword(string accountId, string oldPassword, string newPassword);
+		HangerdResult<bool> ChangeAccountPassword(string accountId, string oldPassword, string newPassword);
 
 		/// <summary>
 		/// 删除Account
 		/// </summary>
-		MessagedResult<bool> RemoveAccount(string accountId);
+		HangerdResult<bool> RemoveAccount(string accountId);
 	}
 }

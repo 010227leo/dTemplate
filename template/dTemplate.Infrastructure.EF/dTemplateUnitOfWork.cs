@@ -6,8 +6,6 @@ namespace dTemplate.Infrastructure.EF
 {
 	public class dTemplateUnitOfWork : EfRepositoryContext
 	{
-		public dTemplateUnitOfWork() { }
-
 		protected override void OnModelCreating(DbModelBuilder modelBuilder)
 		{
 			modelBuilder.Configurations
