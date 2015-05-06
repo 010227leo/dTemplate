@@ -1,8 +1,8 @@
-﻿using dTemplate.Application.DataObjects;
-using dTemplate.Application.Services;
+﻿using System.Web;
 using Hangerd.Components;
 using Hangerd.Mvc.Authentication;
-using System.Web;
+using dTemplate.Application.DataObjects;
+using dTemplate.Application.Services;
 
 namespace dTemplate.Web.Models
 {
@@ -19,12 +19,12 @@ namespace dTemplate.Web.Models
 
 				var accountDto = HttpContext.Current.Items[LoginAccountModelKey] as AccountDto;
 
-				if (accountDto != null) 
+				if (accountDto != null)
 					return accountDto;
 
 				var currentAccountId = LoginHelper.GetUserId();
 
-				if (string.IsNullOrWhiteSpace(currentAccountId)) 
+				if (string.IsNullOrWhiteSpace(currentAccountId))
 					return null;
 
 				var accountService = LocalServiceLocator.GetService<IAccountService>();

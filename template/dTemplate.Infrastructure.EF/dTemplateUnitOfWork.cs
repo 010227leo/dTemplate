@@ -1,6 +1,6 @@
-﻿using dTemplate.Infrastructure.EF.ModelConfigurations;
+﻿using System.Data.Entity;
 using Hangerd.EntityFramework;
-using System.Data.Entity;
+using dTemplate.Infrastructure.EF.ModelConfigurations;
 
 namespace dTemplate.Infrastructure.EF
 {

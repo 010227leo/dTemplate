@@ -1,5 +1,5 @@
-﻿using Hangerd.Mvc;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
+using Hangerd.Mvc;
 
 namespace dTemplate.Web.Controllers
 {

@@ -1,5 +1,5 @@
-﻿using dTemplate.Domain.Models;
-using Hangerd.Repository;
+﻿using Hangerd.Repository;
+using dTemplate.Domain.Models;
 
 namespace dTemplate.Domain.Repositories
 {

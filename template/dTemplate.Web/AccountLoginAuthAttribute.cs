@@ -1,7 +1,7 @@
-﻿using dTemplate.Web.Models;
-using Hangerd.Mvc.Attributes;
-using System.Web;
+﻿using System.Web;
 using System.Web.Mvc;
+using Hangerd.Mvc.Attributes;
+using dTemplate.Web.Models;
 
 namespace dTemplate.Web
 {

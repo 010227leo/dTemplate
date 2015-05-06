@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using dTemplate.Application.DataObjects;
-using dTemplate.Domain.Models;
 using Hangerd.Bootstrapper;
 using Microsoft.Practices.Unity;
+using dTemplate.Application.DataObjects;
+using dTemplate.Domain.Models;
 
 namespace dTemplate.Application.Bootstrapper
 {

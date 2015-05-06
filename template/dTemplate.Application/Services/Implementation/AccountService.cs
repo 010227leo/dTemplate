@@ -1,4 +1,6 @@
-﻿using AutoMapper;
+﻿using System.Collections.Generic;
+using System.Linq;
+using AutoMapper;
 using dTemplate.Application.DataObjects;
 using dTemplate.Domain.Models;
 using dTemplate.Domain.Repositories;
@@ -7,8 +9,6 @@ using dTemplate.Domain.Specifications;
 using Hangerd;
 using Hangerd.Extensions;
 using Hangerd.Repository;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace dTemplate.Application.Services.Implementation
 {
@@ -32,7 +32,7 @@ namespace dTemplate.Application.Services.Implementation
 			IRepositoryContext unitOfWork,
 			IAccountRepository accountRepository,
 			IAccountDomainService accountDomainService)
-			: base(unitOfWork, null)
+			: base(unitOfWork)
 		{
 			_accountRepository = accountRepository;
 			_accountDomainService = accountDomainService;

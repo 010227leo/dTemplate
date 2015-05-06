@@ -1,7 +1,7 @@
-﻿using dTemplate.Infrastructure.EF.Migrations;
+﻿using System.Data.Entity;
 using Hangerd.Bootstrapper;
 using Microsoft.Practices.Unity;
-using System.Data.Entity;
+using dTemplate.Infrastructure.EF.Migrations;
 
 namespace dTemplate.Infrastructure.EF.Bootstrapper
 {

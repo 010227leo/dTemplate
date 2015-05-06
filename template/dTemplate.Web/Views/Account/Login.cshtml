@@ -34,41 +34,40 @@
 
 @section scripts {
 	<script type="text/javascript">
-		$('#formLogin').keypress(function (e) {
-			kCode = e.keyCode || e.charCode;
+		$("#formLogin").keypress(function (e) {
+			var keyCode = e.keyCode || e.charCode;
 
-			if (kCode == 13) {
-				$('#btnSubmit').click();
-				return false;
+			if (keyCode === 13) {
+				$("#btnSubmit").click();
+				return;
 			}
 		});
 
-		$('#btnSubmit').bind('click', function () {
-			if ($.trim($('#txtLoginName').val()) == '') {
-				alert('请输入登录账号');
-				$('#txtLogingName').focus();
-				return false;
+		$("#btnSubmit").bind("click", function () {
+			if ($.trim($("#txtLoginName").val()) === "") {
+				alert("请输入登录账号");
+				$("#txtLogingName").focus();
+				return;
 			}
 
-			if ($.trim($('#txtPassword').val()) == '') {
-				alert('请输入密码');
-				$('#txtPassword').focus();
-				return false;
+			if ($.trim($("#txtPassword").val()) === "") {
+				alert("请输入密码");
+				$("#txtPassword").focus();
+				return;
 			}
 
 			$.ajax({
-				type: 'POST',
-				dataType: 'json',
-				url: '@Url.Action("Login", "Account")',
-				data: $('#formLogin').serialize(),
-				success: function (r, status) {
-					if (r.Success) {
-						window.location.href = '@Url.Action("Index", "Home")';
-					}
-					else {
-						alert(r.Message);
+				type: "POST",
+				dataType: "json",
+				url: "@Url.Action("Login", "Account")",
+				data: $("#formLogin").serialize(),
+				success: function (result) {
+					if (result.Success) {
+						window.location.href = "@Url.Action("Index", "Home")";
+					} else {
+						alert(result.Message);
 
-						$('#txtPassword').val('');
+						$("#txtPassword").val("");
 					}
 				}
 			});

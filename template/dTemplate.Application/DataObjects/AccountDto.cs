@@ -1,5 +1,5 @@
-﻿using Hangerd.Dto;
-using System;
+﻿using System;
+using Hangerd.Dto;
 
 namespace dTemplate.Application.DataObjects
 {

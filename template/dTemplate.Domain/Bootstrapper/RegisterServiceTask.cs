@@ -1,8 +1,8 @@
-﻿using dTemplate.Domain.Services;
-using dTemplate.Domain.Services.Implementation;
-using Hangerd.Bootstrapper;
+﻿using Hangerd.Bootstrapper;
 using Hangerd.Extensions;
 using Microsoft.Practices.Unity;
+using dTemplate.Domain.Services;
+using dTemplate.Domain.Services.Implementation;
 
 namespace dTemplate.Domain.Bootstrapper
 {

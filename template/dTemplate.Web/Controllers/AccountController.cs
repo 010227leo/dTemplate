@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Linq;
 using System.Web.Mvc;
-using dTemplate.Application.DataObjects;
-using dTemplate.Application.Services;
-using dTemplate.Web.Models;
 using Hangerd.Mvc;
 using Hangerd.Mvc.Authentication;
 using Hangerd.Mvc.ViewModels;
+using dTemplate.Application.DataObjects;
+using dTemplate.Application.Services;
+using dTemplate.Web.Models;
 
 namespace dTemplate.Web.Controllers
 {
@@ -38,7 +38,7 @@ namespace dTemplate.Web.Controllers
 			if (success)
 				LoginHelper.Login(result.Value.Id, string.Empty, DateTime.Now.AddHours(2));
 
-			return JsonContent(new { Success = success, Message = result.Message });
+			return OperationJsonResult(success, result.Message);
 		}
 
 		public ActionResult SignOut()
@@ -74,7 +74,7 @@ namespace dTemplate.Web.Controllers
 				Name = model.Name
 			});
 
-			return JsonContent(new { Success = result.Value, Message = result.Message });
+			return OperationJsonResult(result);
 		}
 
 		#endregion

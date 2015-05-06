@@ -1,7 +1,8 @@
-﻿using Hangerd;
+﻿using System;
+using Hangerd;
 using Hangerd.Entity;
 using Hangerd.Utility;
-using System;
+using Hangerd.Validation;
 
 namespace dTemplate.Domain.Models
 {
@@ -38,14 +39,16 @@ namespace dTemplate.Domain.Models
 
 		#region Constructors
 
-		protected Account() { }
+		protected Account()
+		{
+		}
 
 		public Account(string loginName, string unencryptedPassword, string name)
 		{
 			if (string.IsNullOrWhiteSpace(loginName))
 				throw new HangerdException("登录账号不可为空");
 
-			if (!ValidationHelper.IsEmailAddress(loginName))
+			if (!InputValidator.IsEmailAddress(loginName))
 				throw new HangerdException("登录账号须为邮箱地址");
 
 			LoginName = loginName;

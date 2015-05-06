@@ -1,6 +1,6 @@
-﻿using dTemplate.Application.DataObjects;
+﻿using System.Collections.Generic;
 using Hangerd;
-using System.Collections.Generic;
+using dTemplate.Application.DataObjects;
 
 namespace dTemplate.Application.Services
 {

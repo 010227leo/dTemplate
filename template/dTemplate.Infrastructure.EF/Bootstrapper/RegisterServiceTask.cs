@@ -1,9 +1,9 @@
-﻿using dTemplate.Domain.Repositories;
-using dTemplate.Infrastructure.EF.Repositories;
-using Hangerd.Bootstrapper;
+﻿using Hangerd.Bootstrapper;
 using Hangerd.Extensions;
 using Hangerd.Repository;
 using Microsoft.Practices.Unity;
+using dTemplate.Domain.Repositories;
+using dTemplate.Infrastructure.EF.Repositories;
 
 namespace dTemplate.Infrastructure.EF.Bootstrapper
 {

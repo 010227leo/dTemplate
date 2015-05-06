@@ -1,8 +1,7 @@
-﻿using Hangerd;
+﻿using System;
+using Hangerd;
 using Hangerd.Components;
-using Hangerd.Event.Bus;
 using Hangerd.Repository;
-using System;
 
 namespace dTemplate.Application.Services.Implementation
 {
@@ -23,27 +22,13 @@ namespace dTemplate.Application.Services.Implementation
 			}
 		}
 
-		private readonly IEventBus _eventBus;
-
-		protected IEventBus EventBus
-		{
-			get
-			{
-				if (_eventBus == null)
-					throw new HangerdException("EventBus未初始化");
-
-				return _eventBus;
-			}
-		}
-
 		#endregion
 
 		#region Constructors
 
-		protected ServiceBase(IRepositoryContext unitOfWork, IEventBus eventBus)
+		protected ServiceBase(IRepositoryContext unitOfWork)
 		{
 			_unitOfWork = unitOfWork;
-			_eventBus = eventBus;
 		}
 
 		#endregion

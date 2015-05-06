@@ -1,9 +1,9 @@
-﻿using Hangerd;
-using Hangerd.Components;
-using Hangerd.Repository;
-using System;
+﻿using System;
 using System.Web.Mvc;
 using System.Web.Routing;
+using Hangerd;
+using Hangerd.Components;
+using Hangerd.Repository;
 
 namespace dTemplate.Web
 {
