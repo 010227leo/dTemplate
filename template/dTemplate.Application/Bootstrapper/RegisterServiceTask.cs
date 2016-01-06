@@ -15,7 +15,7 @@ namespace dTemplate.Application.Bootstrapper
 		public override void Execute()
 		{
 			//application services
-			_container.RegisterTypeAsPerResolve<IAccountService, AccountService>();
+			_container.RegisterTypeAsSingleton<IAccountService, AccountService>();
 		}
 	}
 }

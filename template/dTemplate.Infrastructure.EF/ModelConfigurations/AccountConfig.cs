@@ -1,5 +1,5 @@
-﻿using Hangerd.EntityFramework;
-using dTemplate.Domain.Models;
+﻿using dTemplate.Domain.Models;
+using Hangerd.EntityFramework.Entity;
 
 namespace dTemplate.Infrastructure.EF.ModelConfigurations
 {

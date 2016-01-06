@@ -23,7 +23,7 @@
 					<div class="navbar-collapse collapse navbar-responsive-collapse">
 						<ul class="nav navbar-nav navbar-right">
 							@{
-								var currentAccount = dTemplate.Web.Models.LoginAccountModel.Current;
+								var currentAccount = dTemplate.Web.Authentication.AccountLoginContext.Current;
 							}
 
 							@if (currentAccount != null)

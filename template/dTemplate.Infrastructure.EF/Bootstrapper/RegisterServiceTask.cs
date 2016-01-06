@@ -1,6 +1,5 @@
 ﻿using Hangerd.Bootstrapper;
 using Hangerd.Extensions;
-using Hangerd.Repository;
 using Microsoft.Practices.Unity;
 using dTemplate.Domain.Repositories;
 using dTemplate.Infrastructure.EF.Repositories;
@@ -15,11 +14,11 @@ namespace dTemplate.Infrastructure.EF.Bootstrapper
 
 		public override void Execute()
 		{
-			//unit of work
-			_container.RegisterTypeAsPerRequest<IRepositoryContext, dTemplateUnitOfWork>();
+			//DbContext
+			_container.RegisterType<dTemplateDbContext>();
 
-			//repositories
-			_container.RegisterTypeAsPerRequest<IAccountRepository, AccountRepository>();
+			//Repository
+			_container.RegisterTypeAsSingleton<IAccountRepository, AccountRepository>();
 		}
 	}
 }

@@ -1,9 +1,8 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 using Hangerd.Mvc.Attributes;
-using dTemplate.Web.Models;
 
-namespace dTemplate.Web
+namespace dTemplate.Web.Authentication
 {
 	public class AccountLoginAuthAttribute : LoginAuthAttribute
 	{
@@ -18,7 +17,7 @@ namespace dTemplate.Web
 			if (!base.LoginAuthorizeCore(httpContext))
 				return false;
 
-			return LoginAccountModel.Current != null;
+			return AccountLoginContext.Current != null;
 		}
 
 		protected override void OnRolePrivilegeCheck(AuthorizationContext filterContext)

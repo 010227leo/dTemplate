@@ -1,9 +1,9 @@
-﻿using Hangerd.Specification;
-using dTemplate.Domain.Models;
+﻿using dTemplate.Domain.Models;
+using Hangerd.Domain.Specification;
 
 namespace dTemplate.Domain.Specifications
 {
-	public class AccountSpecifications : SpecificationsBase<Account>
+	public class AccountSpecifications : EntitySpecifications<Account>
 	{
 		public static Specification<Account> LoginNameEquals(string loginName)
 		{

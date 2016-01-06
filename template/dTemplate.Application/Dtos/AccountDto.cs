@@ -1,7 +1,7 @@
 ﻿using System;
 using Hangerd.Dto;
 
-namespace dTemplate.Application.DataObjects
+namespace dTemplate.Application.Dtos
 {
 	public class AccountDto : DtoBase
 	{

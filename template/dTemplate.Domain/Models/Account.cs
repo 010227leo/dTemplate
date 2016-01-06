@@ -1,12 +1,12 @@
 ﻿using System;
 using Hangerd;
-using Hangerd.Entity;
+using Hangerd.Domain.Entity;
 using Hangerd.Utility;
 using Hangerd.Validation;
 
 namespace dTemplate.Domain.Models
 {
-	public class Account : EntityBase, IDeletable, IValidatable
+	public class Account : EntityBase, IDeletable
 	{
 		#region Public Properties
 
@@ -60,15 +60,6 @@ namespace dTemplate.Domain.Models
 		#endregion
 
 		#region Public Methods
-
-		/// <summary>
-		/// IValidatable
-		/// </summary>
-		public void Validate()
-		{
-			if (string.IsNullOrWhiteSpace(Name))
-				throw new HangerdException("姓名不可为空");
-		}
 
 		/// <summary>
 		/// 验证密码

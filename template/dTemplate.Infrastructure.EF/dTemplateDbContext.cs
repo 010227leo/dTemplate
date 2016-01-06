@@ -4,7 +4,7 @@ using dTemplate.Infrastructure.EF.ModelConfigurations;
 
 namespace dTemplate.Infrastructure.EF
 {
-	public class dTemplateUnitOfWork : EfRepositoryContext
+	public class dTemplateDbContext : HangerdDbContext
 	{
 		protected override void OnModelCreating(DbModelBuilder modelBuilder)
 		{

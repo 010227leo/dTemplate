@@ -49,7 +49,7 @@
       <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Hangerd">
-      <HintPath>..\packages\Hangerd.1.0.9\lib\net45\Hangerd.dll</HintPath>
+      <HintPath>..\packages\Hangerd.1.1.2\lib\net45\Hangerd.dll</HintPath>
     </Reference>
     <Reference Include="Hangerd.Mvc, Version=1.0.5.26783, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -122,15 +122,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Authentication\AccountLoginContext.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\LoginAccountModel.cs" />
     <Compile Include="Models\AccountRegisterModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="AccountLoginAuthAttribute.cs" />
+    <Compile Include="Authentication\AccountLoginAuthAttribute.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />

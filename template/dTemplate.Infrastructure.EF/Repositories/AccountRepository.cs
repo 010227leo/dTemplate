@@ -1,16 +1,16 @@
 ﻿using System.Linq;
 using Hangerd.EntityFramework;
-using Hangerd.Repository;
 using dTemplate.Domain.Models;
 using dTemplate.Domain.Repositories;
 using dTemplate.Domain.Specifications;
+using Hangerd.EntityFramework.Repository;
 
 namespace dTemplate.Infrastructure.EF.Repositories
 {
-	public class AccountRepository : EfRepository<Account>, IAccountRepository
+	public class AccountRepository : EfRepositoryBase<dTemplateDbContext, Account>, IAccountRepository
 	{
-		public AccountRepository(IRepositoryContext context)
-			: base(context)
+		public AccountRepository(IDbContextProvider<dTemplateDbContext> dbContextProvider)
+			: base(dbContextProvider)
 		{
 		}
 

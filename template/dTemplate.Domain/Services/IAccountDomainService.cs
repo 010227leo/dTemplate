@@ -1,4 +1,5 @@
 ﻿using dTemplate.Domain.Models;
+using dTemplate.Domain.Repositories;
 
 namespace dTemplate.Domain.Services
 {
@@ -7,6 +8,6 @@ namespace dTemplate.Domain.Services
 		/// <summary>
 		/// 注册Account
 		/// </summary>
-		Account RegisterNewAccount(string loginName, string unencryptedPassword, string name);
+		Account RegisterNewAccount(IAccountRepository repository, string loginName, string unencryptedPassword, string name);
 	}
 }

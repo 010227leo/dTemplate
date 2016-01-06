@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Linq;
 using System.Web.Mvc;
+using dTemplate.Application.Dtos;
 using Hangerd.Mvc;
 using Hangerd.Mvc.Authentication;
 using Hangerd.Mvc.ViewModels;
-using dTemplate.Application.DataObjects;
 using dTemplate.Application.Services;
+using dTemplate.Web.Authentication;
 using dTemplate.Web.Models;
 
 namespace dTemplate.Web.Controllers
@@ -23,7 +24,7 @@ namespace dTemplate.Web.Controllers
 
 		public ActionResult Login()
 		{
-			if (LoginAccountModel.Current != null)
+			if (AccountLoginContext.Current != null)
 				return RedirectToAction("Index", "Home");
 
 			return View();

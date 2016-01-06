@@ -13,7 +13,7 @@ namespace dTemplate.Infrastructure.EF.Bootstrapper
 
 		public override void Execute()
 		{
-			Database.SetInitializer(new MigrateDatabaseToLatestVersion<dTemplateUnitOfWork, Configuration>());
+			Database.SetInitializer(new MigrateDatabaseToLatestVersion<dTemplateDbContext, Configuration>());
 		}
 	}
 }

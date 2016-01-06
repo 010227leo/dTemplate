@@ -15,7 +15,7 @@ namespace dTemplate.Domain.Bootstrapper
 		public override void Execute()
 		{
 			//domain services
-			_container.RegisterTypeAsPerResolve<IAccountDomainService, AccountDomainService>();
+			_container.RegisterTypeAsSingleton<IAccountDomainService, AccountDomainService>();
 
 			//domain events
 		}
