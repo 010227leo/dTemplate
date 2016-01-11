@@ -15,10 +15,10 @@ namespace dTemplate.Infrastructure.EF.Bootstrapper
 		public override void Execute()
 		{
 			//DbContext
-			_container.RegisterType<dTemplateDbContext>();
+			IocContainer.RegisterType<dTemplateDbContext>();
 
 			//Repository
-			_container.RegisterTypeAsSingleton<IAccountRepository, AccountRepository>();
+			IocContainer.RegisterTypeAsSingleton<IAccountRepository, AccountRepository>();
 		}
 	}
 }

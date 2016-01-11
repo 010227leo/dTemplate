@@ -48,11 +48,13 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="Hangerd">
-      <HintPath>..\packages\Hangerd.1.1.4\lib\net45\Hangerd.dll</HintPath>
+    <Reference Include="Hangerd, Version=1.2.0.27375, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Hangerd.1.2.0\lib\net45\Hangerd.dll</HintPath>
     </Reference>
-    <Reference Include="Hangerd.Mvc">
-      <HintPath>..\packages\Hangerd.Mvc.1.0.5\lib\net45\Hangerd.Mvc.dll</HintPath>
+    <Reference Include="Hangerd.Mvc, Version=1.2.0.27377, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Hangerd.Mvc.1.2.0\lib\net45\Hangerd.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Practices.Unity">

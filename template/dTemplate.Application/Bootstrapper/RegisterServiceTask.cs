@@ -15,7 +15,7 @@ namespace dTemplate.Application.Bootstrapper
 		public override void Execute()
 		{
 			//application services
-			_container.RegisterTypeAsSingleton<IAccountService, AccountService>();
+			IocContainer.RegisterTypeAsSingleton<IAccountService, AccountService>();
 		}
 	}
 }

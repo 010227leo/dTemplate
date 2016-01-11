@@ -18,10 +18,10 @@ namespace dTemplate.Domain.Bootstrapper
 		public override void Execute()
 		{
 			//domain services
-			_container.RegisterTypeAsSingleton<IAccountDomainService, AccountDomainService>();
+			IocContainer.RegisterTypeAsSingleton<IAccountDomainService, AccountDomainService>();
 
 			//domain events
-			_container.RegisterMultipleTypesAsPerResolve<IDomainEventHandler<AccountCreatedEvent>, AccountCreatedEventHandler>();
+			IocContainer.RegisterMultipleTypesAsPerResolve<IDomainEventHandler<AccountCreatedEvent>, AccountCreatedEventHandler>();
 		}
 	}
 }
