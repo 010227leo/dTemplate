@@ -6,14 +6,14 @@ using dTemplate.Domain.Models;
 using dTemplate.Domain.Repositories;
 using dTemplate.Domain.Services;
 using dTemplate.Domain.Specifications;
-using dTemplate.Infrastructure;
 using Hangerd;
 using Hangerd.Extensions;
+using Hangerd.Uow;
 using Hangerd.Validation;
 
 namespace dTemplate.Application.Services.Implementation
 {
-	public class AccountService : dTemplateServiceBase, IAccountService
+	public class AccountService : HangerdServiceBase, IAccountService
 	{
 		#region Repository & Services
 
@@ -57,7 +57,7 @@ namespace dTemplate.Application.Services.Implementation
 
 					return Mapper.Map<Account, AccountDto>(account);
 				}
-			}, successMessage: "登录成功");
+			}, "登录成功");
 		}
 
 		public IEnumerable<AccountDto> GetAccounts(int pageIndex, int pageSize, out int totalCount)
@@ -76,7 +76,7 @@ namespace dTemplate.Application.Services.Implementation
 		{
 			return TryOperate(() =>
 			{
-				using (var context = BeginContext())
+				using (IUnitOfWork context = BeginContext(), eventBus = BeginEventBus())
 				{
 					var newAccount = _accountDomainService.RegisterNewAccount(
 						_accountRepository, accountDto.LoginName, accountDto.Password, accountDto.Name);
@@ -84,25 +84,9 @@ namespace dTemplate.Application.Services.Implementation
 					_accountRepository.Add(newAccount);
 
 					context.Commit();
+					eventBus.Commit();
 				}
-			}, successMessage: "注册成功");
-		}
-
-		public HangerdResult<bool> UpdateAccount(string accountId, AccountDto accountDto)
-		{
-			return TryOperate(() =>
-			{
-				using (var context = BeginContext())
-				{
-					var account = _accountRepository.Get(accountId, true);
-
-					Requires.NotNull(account, "账号信息不存在");
-
-					account.Name = accountDto.Name;
-
-					context.Commit();
-				}
-			});
+			}, "注册成功");
 		}
 
 		public HangerdResult<bool> ChangeAccountPassword(string accountId, string oldPassword, string newPassword)

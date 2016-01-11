@@ -1,8 +1,8 @@
 ﻿using System.Linq;
-using Hangerd.EntityFramework;
 using dTemplate.Domain.Models;
 using dTemplate.Domain.Repositories;
 using dTemplate.Domain.Specifications;
+using Hangerd.EntityFramework;
 using Hangerd.EntityFramework.Repository;
 
 namespace dTemplate.Infrastructure.EF.Repositories

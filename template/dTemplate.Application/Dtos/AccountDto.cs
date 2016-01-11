@@ -1,5 +1,4 @@
-﻿using System;
-using Hangerd.Dto;
+﻿using Hangerd.Dto;
 
 namespace dTemplate.Application.Dtos
 {
@@ -19,10 +18,5 @@ namespace dTemplate.Application.Dtos
 		/// 姓名
 		/// </summary>
 		public string Name { get; set; }
-
-		/// <summary>
-		/// 创建时间
-		/// </summary>
-		public DateTime CreateTime { get; set; }
 	}
 }

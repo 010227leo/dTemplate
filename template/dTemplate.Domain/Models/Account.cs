@@ -1,5 +1,4 @@
-﻿using System;
-using Hangerd;
+﻿using Hangerd;
 using Hangerd.Domain.Entity;
 using Hangerd.Utility;
 using Hangerd.Validation;
@@ -23,12 +22,7 @@ namespace dTemplate.Domain.Models
 		/// <summary>
 		/// 姓名
 		/// </summary>
-		public string Name { get; set; }
-
-		/// <summary>
-		/// 创建时间
-		/// </summary>
-		public DateTime CreateTime { get; private set; }
+		public string Name { get; private set; }
 
 		/// <summary>
 		/// IDeletable
@@ -54,7 +48,6 @@ namespace dTemplate.Domain.Models
 			LoginName = loginName;
 			EncryptedPassword = GetEncryptedPassword(unencryptedPassword);
 			Name = name;
-			CreateTime = DateTime.Now;
 		}
 
 		#endregion

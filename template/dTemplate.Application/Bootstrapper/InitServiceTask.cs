@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
 using dTemplate.Application.Dtos;
-using Hangerd.Bootstrapper;
-using Microsoft.Practices.Unity;
 using dTemplate.Domain.Models;
+using Hangerd.Bootstrapper;
 using Hangerd.Components;
 using Hangerd.Event.Bus;
+using Microsoft.Practices.Unity;
 
 namespace dTemplate.Application.Bootstrapper
 {

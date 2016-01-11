@@ -27,11 +27,6 @@ namespace dTemplate.Application.Services
 		HangerdResult<bool> RegisterAccount(AccountDto accountDto);
 
 		/// <summary>
-		/// 更新Account
-		/// </summary>
-		HangerdResult<bool> UpdateAccount(string accountId, AccountDto accountDto);
-
-		/// <summary>
 		/// 修改Account密码
 		/// </summary>
 		HangerdResult<bool> ChangeAccountPassword(string accountId, string oldPassword, string newPassword);
