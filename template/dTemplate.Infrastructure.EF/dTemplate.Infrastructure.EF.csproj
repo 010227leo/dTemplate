@@ -38,9 +38,9 @@
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="Hangerd, Version=1.2.0.27375, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Hangerd, Version=1.2.1.20146, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Hangerd.1.2.0\lib\net45\Hangerd.dll</HintPath>
+      <HintPath>..\packages\Hangerd.1.2.1\lib\net45\Hangerd.dll</HintPath>
     </Reference>
     <Reference Include="Hangerd.EntityFramework, Version=1.2.0.27376, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
