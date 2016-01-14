@@ -14,9 +14,6 @@ namespace dTemplate.Infrastructure.EF.Bootstrapper
 
 		public override void Execute()
 		{
-			//DbContext
-			IocContainer.RegisterType<dTemplateDbContext>();
-
 			//Repository
 			IocContainer.RegisterTypeAsSingleton<IAccountRepository, AccountRepository>();
 		}

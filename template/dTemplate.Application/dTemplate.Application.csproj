@@ -38,7 +38,7 @@
     <Reference Include="AutoMapper.Net4">
       <HintPath>..\packages\AutoMapper.3.2.1\lib\net40\AutoMapper.Net4.dll</HintPath>
     </Reference>
-    <Reference Include="Hangerd, Version=1.2.0.17329, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Hangerd, Version=1.2.0.19311, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Hangerd.1.2.0\lib\net45\Hangerd.dll</HintPath>
     </Reference>

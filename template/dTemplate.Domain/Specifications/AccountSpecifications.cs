@@ -1,5 +1,5 @@
 ﻿using dTemplate.Domain.Models;
-using Hangerd.Domain.Specification;
+using Hangerd.Specification;
 
 namespace dTemplate.Domain.Specifications
 {
