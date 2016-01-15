@@ -62,13 +62,13 @@ namespace dTemplate.Application.Services.Implementation
 			}, "登录成功");
 		}
 
-		public IEnumerable<AccountDto> GetAccounts(int pageIndex, int pageSize, out int totalCount)
+		public IEnumerable<AccountDto> GetAccounts(int pageIndex, int pageSize, ref int totalCount)
 		{
 			using (UnitOfWorkManager.Begin<IRepositoryContext>())
 			{
 				var accounts = _accountRepository.GetAll(DeletableSpecifications<Account>.NotDeleted(), false)
 					.OrderByDescending(a => a.CreateTime)
-					.Paging(pageIndex, pageSize, out totalCount);
+					.Paging(pageIndex, pageSize, ref totalCount);
 
 				return Mapper.Map<IEnumerable<Account>, IEnumerable<AccountDto>>(accounts);
 			}

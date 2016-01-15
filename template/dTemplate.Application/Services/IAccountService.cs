@@ -19,7 +19,7 @@ namespace dTemplate.Application.Services
 		/// <summary>
 		/// 获取Account列表
 		/// </summary>
-		IEnumerable<AccountDto> GetAccounts(int pageIndex, int pageSize, out int totalCount);
+		IEnumerable<AccountDto> GetAccounts(int pageIndex, int pageSize, ref int totalCount);
 
 		/// <summary>
 		/// 注册Account
