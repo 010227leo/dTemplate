@@ -24,7 +24,7 @@ namespace dTemplate.Web.Controllers
 
 		public ActionResult Login()
 		{
-			if (AccountLoginContext.Current != null)
+			if (AccountAuthContext.Current != null)
 				return RedirectToAction("Index", "Home");
 
 			return View();
@@ -37,14 +37,14 @@ namespace dTemplate.Web.Controllers
 			var success = result.Value != null;
 
 			if (success)
-				LoginHelper.Login(result.Value.Id, string.Empty, DateTime.Now.AddHours(2));
+				FormsAuthenticationHelper.SignIn(result.Value.Id, string.Empty, DateTime.Now.AddHours(2));
 
 			return OperationJsonResult(success, result.Message);
 		}
 
 		public ActionResult SignOut()
 		{
-			LoginHelper.SignOut();
+			FormsAuthenticationHelper.SignOut();
 
 			return RedirectToAction("Login");
 		}
